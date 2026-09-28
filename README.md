@@ -1,10 +1,29 @@
-This is my first github project I am learning computer science and building my skills step by step
-SKILLS
-I am learning 
-python java script
-web development 
-problem solving
-data structure 
-git hub
-##ABOUT ME
-I am computer science student at the university of lahore and I am working on improving my programming and software development skills
+# Hi, I'm Qais 👋
+
+## About Me
+
+I am a Computer Science student at the University of Lahore.
+I am learning programming and building my skills step by step.
+
+## Skills
+
+- Python
+- JavaScript
+- Web Development
+- Problem Solving
+- Data Structures
+- Git & GitHub
+- Software Development
+
+## Currently Learning
+
+- Programming Fundamentals
+- Python
+- JavaScript
+- Web Development
+- Data Structures & Algorithms
+- Git & GitHub
+
+## My Goal
+
+I am working on improving my programming and software development skills and building projects as I learn.
