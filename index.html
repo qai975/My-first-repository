@@ -1,35 +1,127 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Qais Raza - Portfolio</title>
   <style>
-    body { font-family: Arial; background: #f4f4f4; text-align: center; padding: 20px; margin: 0; }
-    h1 { color: #0a7d3b; }
-    .photo { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #0a7d3b; object-fit: cover; }
-    .box { background: white; padding: 20px; margin: 20px auto; max-width: 500px; border-radius: 15px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #070b16; color: #e8ecf5; text-align: center; overflow-x: hidden; }
+    .bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.45; animation: float 12s ease-in-out infinite alternate; }
+    .b1 { width: 320px; height: 320px; background: #0a7d3b; top: -80px; left: -80px; }
+    .b2 { width: 300px; height: 300px; background: #1e6fd9; bottom: 5%; right: -90px; animation-delay: -4s; }
+    .b3 { width: 240px; height: 240px; background: #8b3fd9; top: 45%; left: -60px; animation-delay: -8s; }
+    @keyframes float { from { transform: translate(0, 0) scale(1); } to { transform: translate(40px, 60px) scale(1.2); } }
+
+    .hero { padding: 60px 20px 30px; }
+    .ring { width: 170px; height: 170px; margin: 0 auto 22px; border-radius: 50%; padding: 5px; background: conic-gradient(#0a7d3b, #1e6fd9, #8b3fd9, #f39c12, #0a7d3b); animation: spin 6s linear infinite; box-shadow: 0 0 35px rgba(30,111,217,0.5); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .ring .inner { width: 100%; height: 100%; border-radius: 50%; background: #070b16; padding: 4px; animation: spin 6s linear infinite reverse; }
+    .photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+
+    h1 { font-size: 34px; background: linear-gradient(90deg, #35d07f, #4da3ff, #b57bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .role { margin-top: 12px; font-size: 18px; min-height: 26px; color: #b9c3dc; }
+    .cursor { display: inline-block; width: 2px; height: 20px; background: #4da3ff; margin-left: 3px; vertical-align: middle; animation: blink 0.8s infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .uni { margin-top: 8px; font-size: 14px; color: #8a96b3; }
+
+    section { max-width: 520px; margin: 24px auto; padding: 0 18px; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    section.show { opacity: 1; transform: none; }
+    .glass { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(12px); border-radius: 20px; padding: 24px 20px; }
+    h2 { font-size: 22px; margin-bottom: 14px; color: #fff; }
+    p { line-height: 1.7; color: #c8d0e4; font-size: 15px; }
+
+    .label { font-size: 13px; color: #8a96b3; margin: 12px 0 8px; letter-spacing: 1px; text-transform: uppercase; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .chip { padding: 8px 14px; border-radius: 30px; font-size: 14px; background: rgba(53,208,127,0.15); border: 1px solid rgba(53,208,127,0.5); color: #7dffb8; }
+    .chip.learn { background: rgba(77,163,255,0.15); border-color: rgba(77,163,255,0.5); color: #9bc8ff; }
+
+    .cards { display: grid; gap: 14px; }
+    .card { display: block; text-decoration: none; color: inherit; padding: 18px; border-radius: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s; text-align: left; }
+    .card:hover, .card:active { transform: translateY(-5px); border-color: #4da3ff; box-shadow: 0 10px 28px rgba(77,163,255,0.3); }
+    .card h3 { font-size: 17px; color: #fff; margin-bottom: 6px; }
+    .card p { font-size: 14px; }
+    .tag { display: inline-block; margin-top: 10px; font-size: 12px; color: #4da3ff; }
+
+    footer { padding: 40px 20px 50px; font-size: 14px; color: #8a96b3; line-height: 1.8; }
+    footer b { color: #fff; }
   </style>
 </head>
 <body>
-  <img class="photo" src="Snapchat-1131860101.jpg" alt="Muhammad Qais Raza">
-  <h1>Muhammad Qais Raza</h1>
-  <p>Computer Science Student, University of Lahore</p>
+  <div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 
-  <div class="box">
-    <h2>About Me</h2>
-    <p>My name is Muhammad Qais Raza. I am a Computer Science student at the University of Lahore. In my degree, I will learn programming, data structures, algorithms, databases, operating systems, computer networks, and software engineering. I already know the basics of web development, and I am building projects on GitHub to practice what I learn.</p>
+  <div class="hero">
+    <div class="ring"><div class="inner"><img class="photo" src="Snapchat-1131860101.jpg" alt="Muhammad Qais Raza"></div></div>
+    <h1>Muhammad Qais Raza</h1>
+    <div class="role"><span id="typed"></span><span class="cursor"></span></div>
+    <div class="uni">University of Lahore</div>
   </div>
 
-  <div class="box">
-    <h2>Skills</h2>
-    <p>Python, JavaScript, Data Structures, Problem Solving</p>
-  </div>
+  <section>
+    <div class="glass">
+      <h2>About Me</h2>
+      <p>Hi, I am Muhammad Qais Raza, a Computer Science student at the University of Lahore. I love building things for the web and I am learning something new every day. This site is my very first project, made with my own hands.</p>
+    </div>
+  </section>
 
-  <div class="box">
-    <h2>My Projects</h2>
-    <p><a href="https://qai975.github.io/calculator-">Calculator</a></p>
-  </div>
+  <section>
+    <div class="glass">
+      <h2>Skills</h2>
+      <div class="label">I can use</div>
+      <div class="chips">
+        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Git and GitHub</span>
+      </div>
+      <div class="label">Learning now</div>
+      <div class="chips">
+        <span class="chip learn">Python</span><span class="chip learn">Data Structures</span><span class="chip learn">Problem Solving</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="glass">
+      <h2>My Projects</h2>
+      <div class="cards">
+        <a class="card" href="https://qai975.github.io/calculator-">
+          <h3>Calculator</h3>
+          <p>A working calculator with a clean design. Add, subtract, multiply and divide.</p>
+          <span class="tag">HTML · CSS · JavaScript</span>
+        </a>
+        <a class="card" href="https://qai975.github.io/todo--list">
+          <h3>To-Do List</h3>
+          <p>Add, complete and delete tasks. Your tasks stay saved.</p>
+          <span class="tag">HTML · CSS · JavaScript</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with passion by <b>Muhammad Qais Raza</b><br>Computer Science Student, University of Lahore</footer>
+
+  <script>
+    var roles = ['Computer Science Student', 'Web Developer', 'Future Software Engineer'];
+    var r = 0, c = 0, del = false, el = document.getElementById('typed');
+    function type() {
+      var word = roles[r];
+      el.textContent = word.substring(0, c);
+      if (!del && c < word.length) { c++; setTimeout(type, 90); }
+      else if (!del) { del = true; setTimeout(type, 1400); }
+      else if (c > 0) { c--; setTimeout(type, 45); }
+      else { del = false; r = (r + 1) % roles.length; setTimeout(type, 300); }
+    }
+    type();
+
+    var secs = document.querySelectorAll('section');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('show'); });
+      }, { threshold: 0.15 });
+      secs.forEach(function (s) { io.observe(s); });
+    } else {
+      secs.forEach(function (s) { s.classList.add('show'); });
+    }
+  </script>
 </body>
 </html>
